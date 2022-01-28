@@ -21,7 +21,10 @@ const getTodos = (resource) => {
 
 console.log("loading");
 getTodos('todos/luigi.json').then(data => {
-    console.log(data);
+    console.log("promise 1 resolved:", data);
+    return getTodos('todos/mario.json');
+}).then(data => {
+    console.log("promise 2 resolved:", data);
 }).catch(err => {
     console.log(err);
 })
